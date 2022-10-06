@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Login</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel="stylesheet" href="./style/login.css">
+
+</head>
+
+<body>
+  <div id="login-form-wrap">
+    <h2>Login</h2>
+    <form id="login-form">
+      <p>
+        <select name="department" id="department">
+            <option value="select" selected="true" disabled>--select department--</option>
+            <option value="farmer">farmer</option>
+            <option value="land">land</option>
+            <option value="ddo">ddo</option>
+        </select>
+      </p>
+      <p>
+        <input type="text" id="userid" name="userid" placeholder="UserID" required><i
+          class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input type="password" id="pass" name="pass" placeholder="Password" required><i
+          class="validation"><span></span><span></span></i>
+      </p>
+      <p>
+        <input type="submit" id="login" value="Login">
+      </p>
+    </form>
+    <div id="create-account-wrap">
+      <p>Forget Password ? <a href="#">Contact Admin</a>
+      <p>
+    </div>
+    <!--create-account-wrap-->
+  </div>
+  <!--login-form-wrap-->
+  <!-- partial -->
+
+</body>
+
+</html>
