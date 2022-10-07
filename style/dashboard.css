@@ -20,6 +20,23 @@
   align-items: center;
 }
 
+.new-btn a.button{
+  -webkit-appearance: button;
+    -moz-appearance: button;
+    appearance: button;
+    text-decoration: none;
+    color: initial;
+}
+.new-btn a{
+  background-color: cadetblue;
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 17px;
+}
 .greet-container h1 {
   font-size: 2rem;
   letter-spacing: 0.1rem;

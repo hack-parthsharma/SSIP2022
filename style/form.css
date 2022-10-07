@@ -1,0 +1,35 @@
+body{
+    font-size: large;
+}
+table {
+    border-collapse: collapse;
+}
+th, td {
+    width:150px;
+    text-align:center;
+    padding:10px
+}
+input[type="submit"] {
+    border: none;
+    display: block;
+    background-color: #3ca9e2;
+    color: #fff;
+    width: 100px;
+    cursor: pointer;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+    font-size: 18px;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    text-align: center;
+  }
+input[type="submit"]:hover {
+    background-color: #329dd5;
+    -webkit-transition: all 0.2s ease;
+    transition: all 0.2s ease;
+}
+input[type="text"]{
+    height: 30px;
+    width: 300px;
+}

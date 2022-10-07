@@ -106,7 +106,7 @@ input[type="password"]:valid ~ .validation span:first-child {
 input[type="text"]:valid ~ .validation span:last-child,
 input[type="password"]:valid ~ .validation span:last-child {
   top: 35px;
-  left: 8px;
+  left: 8px;  
   width: 11px;
   height: 3px;
   -webkit-transform: rotate(45deg);

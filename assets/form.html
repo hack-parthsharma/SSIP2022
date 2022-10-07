@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/style/form.css">
+</head>
+
+<body>
+
+    </section>
+    <div>
+        <table>
+            <tr>
+                <td>
+                    <label for="department">department:</label>
+                </td>
+                <td>
+                    <input type="text" id="department" name="department" placeholder="department" required>
+                </td>
+            </tr>
+            <tr style="padding-top: 5px;">
+                <td>
+                    <label for="subject">subject:</label>
+                </td>
+                <td>
+                    <input type="text" id="subject" name="subject" placeholder="subject" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Created by">Created by:</label>
+                </td>
+                <td>
+                    <input type="text" id="Created_by" name="Created_by" placeholder="Created by" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Remarks">Remarks:</label>
+                </td>
+                <td>
+                    <textarea name="remarks" rows="5" cols="40"></textarea>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Documents">Documents:</label>
+                </td>
+                <td>
+                    <input type="file" name="file" id="file" onchange="updateList()" multiple>
+                    <div id="filelist"></div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="Destination">Destination:</label>
+                </td>
+                <td>
+                    <input type="text" id="Destination" name="Destination" placeholder="Destination" required>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="submit" id="add" value="add" class="button">
+                </td>
+            </tr>
+        </table>
+        <!-- </ul> -->
+    </div>
+    <section>
+        <!-- <script src="/scripts/file_list.js"></script> -->
+        <script>
+            updateList = function () {
+                var input = document.getElementById('file');
+                var output = document.getElementById('filelist');
+
+                output.innerHTML = '<ul style="list-style-type: none;">';
+                for (var i = 0; i < input.files.length; ++i) {
+                    output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
+                }
+                output.innerHTML += '</ul>';
+            }
+        </script>
+</body>
+
+</html>
