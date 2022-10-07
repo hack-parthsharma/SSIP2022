@@ -36,32 +36,32 @@
   align-items: center;
 }
 
-.col2 {
+.search-wrapper {
      /* border: 2px solid red; */
   width: 100%;
   height: 5rem;
   padding: 1rem;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
+  justify-content:space-evenly;
   column-gap: 1rem;
 }
 
-.col2 .search-container {
+.search-wrapper .search-container {
   width: fit-content;
   height: 100%;
 }
-.col2 .search-container form {
+.search-wrapper .search-container form {
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.col2 input[type="text"] {
+.search-wrapper input[type="text"] {
   height: 3rem;
-  width: 20rem;
+  width: 800px;
 }
 
-.col2 .search-container button {
+.search-wrapper .search-container button {
   width: 3rem;
   height: 3rem;
   background: #ddd;
@@ -70,15 +70,15 @@
   cursor: pointer;
 }
 
-.col2 .search-container button:hover {
+.search-wrapper .search-container button:hover {
   background: #ccc;
 }
 
-.col2 .new-btn button {
+.search-wrapper .new-btn button {
   width: 10rem;
   height: 3rem;
 }
-.col-3 {
+.col3 {
     font-family: "Roboto", sans-serif;
     margin: 0;
     padding: 0;
@@ -90,22 +90,52 @@
     
   }
 
-.col-3 a{
+.col3 a{
     float: left;
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
     color: aliceblue;
 }
-.col-3 a:hover {
+.col3 a:hover {
     background-color: white;
     color: black;
   }
-.col-3 a:focus{
+.col3 a:focus{
     
     background-color: white;
     color: black;
 }
 .right{
     float: right;
+}
+
+/* ===== TABLE ========= */
+.col4 {
+     width: 100%;
+     height: fit-content;
+     padding: 1rem;
+}
+#files-table{
+     border: 2px solid rgb(74, 73, 73);
+     width: 100%;
+     height: fit-content;
+     border-collapse: collapse;
+     text-align: center;
+}
+
+td,th {
+     border: 1px solid rgb(67, 66, 66);
+     padding: .2rem .5rem;
+}
+
+#checkbox:active ~ td{
+     background-color: red;
+}
+tr:hover {
+     background-color: rgb(224, 224, 253);
+}
+
+tr.active {
+     background-color: rgb(255, 207, 181);
 }
