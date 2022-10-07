@@ -78,3 +78,34 @@
   width: 10rem;
   height: 3rem;
 }
+.col-3 {
+    font-family: "Roboto", sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    background: black;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    
+  }
+
+.col-3 a{
+    float: left;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    color: aliceblue;
+}
+.col-3 a:hover {
+    background-color: white;
+    color: black;
+  }
+.col-3 a:focus{
+    
+    background-color: white;
+    color: black;
+}
+.right{
+    float: right;
+}
