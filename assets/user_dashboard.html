@@ -1,11 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="dashboard">
 
 <head>
      <meta charset="UTF-8">
      <meta http-equiv="X-UA-Compatible" content="IE=edge">
      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+     <!-- SCRIPTS Angular -->
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+     <!-- SCRIPTS jquery -->
+     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
      <!-- icon -->
      <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
      <!-- style -->
@@ -18,41 +22,35 @@
 
           <div class="col1">
                <div class="greet-container">
-                    <h1>Good Morning , </h1><span> Parth Sharma</span>
+                    <h1 class="greeting"></h1><span> Parth Sharma</span>
                </div>
           </div>
 
           <div class="col3">
                <div class="left">
-                    <a href="#">current files</a>
-                    <a href="#">missing files request</a>
+                    <a href="#" onclick="AllFilesTable()">Current Files</a>
+                    <a href="#" onclick="MissingRequestTable()">Missing Files Request</a>
                </div>
-               <!-- <div class="right">
-                    <a href="#">request for missing files</a>
-                    <a href="#">delete files</a>
-                    <a href="#">approve</a>
-                    <a href="#">reject</a>
-               </div> -->
           </div>
-          <div class="col4">
-
+          <div class="col4 active" ng-controller="searchitems">
 
                <div class="search-wrapper">
                     <div class="search-container">
                          <form action="#">
-                              <input type="text" placeholder="Search by : CaseID , Date ... " name="search">
+                              <input type="text" ng-model="search.CaseID" placeholder="Search by : CaseID , Date ... "
+                                   name="search">
                               <button type="submit"><i class="bx bx-search"></i></button>
                          </form>
                     </div>
                     <div class="new-btn">
-     
+
                          <button>NEW FILE</button>
-     
+
                     </div>
                </div>
 
 
-               <table id="files-table">
+               <table id="files-table" class="files-table">
                     <thead>
                          <tr>
                               <th></th>
@@ -69,145 +67,57 @@
                          </tr>
                     </thead>
                     <tbody>
+                         <tr ng-repeat="item in templetes | filter : search">
+                              <td><input type="checkbox" name="" id=""></td>
+                              <td>{{item.CaseID}}</td>
+                              <td>{{item.Department}}</td>
+                              <td>{{item.Subject}}</td>
+                              <td>{{item.CreatedBy}}</td>
+                              <td>{{item.CreatedDate}}</td>
+                              <td>{{item.Remarks}}</td>
+                              <td><input type="button" value="Check Files" class="file-check"></td>
+                              <td>{{item.Status}}</td>
+                              <td>{{item.CurrentDep}}</td>
+                              <td>{{item.Destination}}</td>
+                         </tr>
+                    </tbody>
+               </table>
+          </div>
+
+          <div class="col5">
+               <table id="files-table" class="files-table">
+                    <thead>
+                         <tr>
+                              <th></th>
+                              <th>CaseID</th>
+                              <th>Department</th>
+                              <th>Subject</th>
+
+                         </tr>
+                    </thead>
+                    <tbody>
                          <tr>
                               <td><input type="checkbox" name="" id=""></td>
                               <td>C0001</td>
                               <td>Farming</td>
                               <td>Land Transfer</td>
-                              <td>Parth Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Helo dkvndivnd dvv</td>
-                              <td><input type="file"></td>
-                              <td>approve</td>
-                              <td>Dep-2</td>
-                              <td>DDO</td>
+
                          </tr>
                          <tr>
                               <td><input type="checkbox" name="" id=""></td>
                               <td>C0002</td>
                               <td>Farming</td>
                               <td>Land Survey</td>
-                              <td>priya Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Lorem, ipsum dolor.</td>
-                              <td><input type="file"></td>
-                              <td>pending</td>
-                              <td>Dep-1</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr class="active">
-                              <td><input type="checkbox" name="" id="checkbox"></td>
-                              <td>C0001</td>
-                              <td>Farming</td>
-                              <td>Land Transfer</td>
-                              <td>Parth Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Helo dkvndivnd dvv</td>
-                              <td><input type="file"></td>
-                              <td>approve</td>
-                              <td>Dep-2</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0002</td>
-                              <td>Farming</td>
-                              <td>Land Survey</td>
-                              <td>priya Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Lorem, ipsum dolor.</td>
-                              <td><input type="file"></td>
-                              <td>pending</td>
-                              <td>Dep-1</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0001</td>
-                              <td>Farming</td>
-                              <td>Land Transfer</td>
-                              <td>Parth Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Helo dkvndivnd dvv</td>
-                              <td><input type="file"></td>
-                              <td>approve</td>
-                              <td>Dep-2</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0002</td>
-                              <td>Farming</td>
-                              <td>Land Survey</td>
-                              <td>priya Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Lorem, ipsum dolor.</td>
-                              <td><input type="file"></td>
-                              <td>pending</td>
-                              <td>Dep-1</td>
-                              <td>DDO</td>
-                         </tr><tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0001</td>
-                              <td>Farming</td>
-                              <td>Land Transfer</td>
-                              <td>Parth Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Helo dkvndivnd dvv</td>
-                              <td><input type="file"></td>
-                              <td>approve</td>
-                              <td>Dep-2</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0002</td>
-                              <td>Farming</td>
-                              <td>Land Survey</td>
-                              <td>priya Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Lorem, ipsum dolor.</td>
-                              <td><input type="file"></td>
-                              <td>pending</td>
-                              <td>Dep-1</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0001</td>
-                              <td>Farming</td>
-                              <td>Land Transfer</td>
-                              <td>Parth Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Helo dkvndivnd dvv</td>
-                              <td><input type="file"></td>
-                              <td>approve</td>
-                              <td>Dep-2</td>
-                              <td>DDO</td>
-                         </tr>
-                         <tr>
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>C0002</td>
-                              <td>Farming</td>
-                              <td>Land Survey</td>
-                              <td>priya Sharma</td>
-                              <td>20/2/2022</td>
-                              <td>Lorem, ipsum dolor.</td>
-                              <td><input type="file"></td>
-                              <td>pending</td>
-                              <td>Dep-1</td>
-                              <td>DDO</td>
+
                          </tr>
                     </tbody>
                </table>
           </div>
      </section>
 
-     <!-- SCRIPTS -->
-     <script src="https://code.jquery.com/jquery-3.6.1.min.js"
-          integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
      <script src="/scripts/dashboard.js"></script>
+     <script src="/scripts/angular-app.js"></script>
 </body>
 
 </html>
