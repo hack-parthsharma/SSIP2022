@@ -72,19 +72,6 @@
         <!-- </ul> -->
     </div>
     <section>
-        <!-- <script src="/scripts/file_list.js"></script> -->
-        <script>
-            updateList = function () {
-                var input = document.getElementById('file');
-                var output = document.getElementById('filelist');
-
-                output.innerHTML = '<ul style="list-style-type: none;">';
-                for (var i = 0; i < input.files.length; ++i) {
-                    output.innerHTML += '<li>' + input.files.item(i).name + '</li>';
-                }
-                output.innerHTML += '</ul>';
-            }
-        </script>
 </body>
 
 </html>
