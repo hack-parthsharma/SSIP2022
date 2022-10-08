@@ -111,7 +111,63 @@
                Status: "Pending",
                CurrentDep: "Landing",
                Destination: "DDO"
+          },
+          {
+               CaseID: "C0011",
+               Department: "Social Welfare",
+               Subject: "Social Wellness",
+               CreatedBy: "U002",
+               CreatedDate: "14/06/2020",
+               Remarks: "Please pass the bill",
+               Status: "Approved",
+               CurrentDep: "Animal",
+               Destination: "DDO"
+          },
+          {
+               CaseID: "C0012",
+               Department: "Healthcare",
+               Subject: "Request for medical",
+               CreatedBy: "U002",
+               CreatedDate: "16/03/2020",
+               Remarks: "Please pass the medical bill",
+               Status: "Pending",
+               CurrentDep: "Healthcare",
+               Destination: "Ayurveda"
+          },
+          {
+               CaseID: "C0013",
+               Department: "Auditing",
+               Subject: "Auditor request",
+               CreatedBy: "U001",
+               CreatedDate: "04/03/2020",
+               Remarks: "Internal audit",
+               Status: "Approved",
+               CurrentDep: "Auditing",
+               Destination: "DDO"
+          },
+          {
+               CaseID: "C0014",
+               Department: "Accounting",
+               Subject: "Accounting request",
+               CreatedBy: "U002",
+               CreatedDate: "14/02/2020",
+               Remarks: "Please pass the bill",
+               Status: "Pending",
+               CurrentDep: "Accounting",
+               Destination: "Chief Accountant Office"
+          },
+          {
+               CaseID: "C0015",
+               Department: "Agriculture",
+               Subject: "Request for pesticides",
+               CreatedBy: "U001",
+               CreatedDate: "13/04/2020",
+               Remarks: "Please pass the bill for pesticides",
+               Status: "Pending",
+               CurrentDep: "Agriculture",
+               Destination: "DDO"
           }
+
      ];
 
      var users = [
@@ -143,7 +199,14 @@
           // $scope.recent_follow = recent_follow;
      };
 
+<<<<<<< HEAD
      function userController($scope) {
           $scope.user = users;
       };
 })();
+=======
+     // function viewController($scope) {
+     //      $scope.item = resources;
+     //  };
+})();
+>>>>>>> 121f00b903a855ac90785a90e821546e678ae71d
