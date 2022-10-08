@@ -114,8 +114,27 @@
           }
      ];
 
+     var users = [
+          // {
+          //      name: "Faizal Kadiwal"
+          // },
+          {
+               name: "Manan Patel"
+          },
+          // {
+          //      name: "Parth Sharma"
+          // },
+          // {
+          //      name: "Krish Patel"
+          // },
+          // {
+          //      name: "Nirnay Rawal"
+          // }
+     ];
+
      angular.module('dashboard', [])
-          .controller('searchitems', searchitems);
+          .controller('searchitems', searchitems)
+          .controller('userController', userController);
      searchitems.$inject = ['$scope'];
      viewController.$inject = ['$scope'];
 
@@ -124,7 +143,7 @@
           // $scope.recent_follow = recent_follow;
      };
 
-     // function viewController($scope) {
-     //      $scope.item = resources;
-     //  };
+     function userController($scope) {
+          $scope.user = users;
+      };
 })();

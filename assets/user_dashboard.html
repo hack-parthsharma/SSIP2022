@@ -13,16 +13,16 @@
      <!-- icon -->
      <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
      <!-- style -->
-     <link rel="stylesheet" href="/style/dashboard.css ">
+     <link rel="stylesheet" href="http://localhost/ssip/SSIP2022/style/dashboard.css">
      <title>Dashboard</title>
 </head>
 
 <body>
-     <section class="dash-wrapper">
+     <section class="dash-wrapper" ng-controller="userController">
 
-          <div class="col1">
+          <div class="col1" ng-repeat="u in user">
                <div class="greet-container">
-                    <h1 class="greeting"></h1><span> Parth Sharma</span>
+                    <h1 class="greeting"></h1><span> {{u.name}}</span>
                </div>
           </div>
 
@@ -38,13 +38,13 @@
                <div class="search-wrapper">
                     <div class="search-container">
                          <form action="#">
-                              <input type="text" ng-model="search.CaseID" placeholder="Search by : CaseID , Date ... "
+                              <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
                                    name="search">
                               <button type="submit"><i class="bx bx-search"></i></button>
                          </form>
                     </div>
                     <div class="new-btn">
-                         <a href="/assets/form.html" class="button">New file</a>
+                         <a href="http://localhost/ssip/SSIP2022/assets/form.html" class="button">New file</a>
                     </div>
                </div>
 
@@ -100,8 +100,8 @@
      </section>
 
 
-     <script src="/scripts/dashboard.js"></script>
-     <script src="/scripts/angular-app.js"></script>
+     <script src="http://localhost/ssip/SSIP2022/scripts/dashboard.js"></script>
+     <script src="http://localhost/ssip/SSIP2022/scripts/angular-app.js"></script>
 </body>
 
 </html>

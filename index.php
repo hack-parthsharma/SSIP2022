@@ -5,14 +5,14 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="./style/login.css">
+  <link rel="stylesheet" href="http://localhost/ssip/SSIP2022/style/login.css">
 
 </head>
 
 <body>
   <div id="login-form-wrap">
     <h2>Login</h2>
-    <form id="login-form">
+    <form id="login-form" method="post">
       <p>
         <select name="department" id="department">
             <option value="select" selected="true" disabled>--select department--</option>
@@ -41,7 +41,39 @@
   </div>
   <!--login-form-wrap-->
   <!-- partial -->
-
+  <?php
+  $servername = "localhost";
+  $username = "root";
+  $password = "";
+  $dbname = "ssip";
+  $userid=$_POST['userid'];
+  $pass=$_POST['pass'];
+  // Create connection
+  $conn = new mysqli($servername, $username, $password, $dbname);
+  // Check connection
+  if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+  }
+  
+  $sql = "SELECT email,pass FROM abc  ";
+  // Create variables of email and pass from the database table abc
+  $result = $conn->query($sql);
+  if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+      if($row["email"]==$userid && $row["pass"]==$pass)
+      {
+        header("Location: http://localhost/ssip/SSIP2022/assets/user_dashboard.html");
+      }
+      else
+      {
+        echo "Login fails";
+      }
+    }
+  } else {
+    echo "0 results";
+  }
+  ?>
 </body>
 
 </html>
