@@ -199,14 +199,8 @@
           // $scope.recent_follow = recent_follow;
      };
 
-<<<<<<< HEAD
      function userController($scope) {
           $scope.user = users;
       };
 })();
-=======
-     // function viewController($scope) {
-     //      $scope.item = resources;
-     //  };
-})();
->>>>>>> 121f00b903a855ac90785a90e821546e678ae71d
+
