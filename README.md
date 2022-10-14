@@ -1,6 +1,7 @@
 # SSIP 2022 - Azadi ka Amrit Mahotsav 
-A 36hr marathon hackathon 
+A 36hr marathon hackathon conducted over whole gujarat at same time.
 
+# Problem Statement 
 DDO File Tracking System for Palanpur Office 
 
 # Tech Stack Being Used : 
