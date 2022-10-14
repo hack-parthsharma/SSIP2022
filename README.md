@@ -13,4 +13,4 @@ Hyper Text Markup Language, Cascading Style Sheets, JavaScript, PHP and MySQL
 5. Nirnay Raval (Leader with most important trait : UPI Id kyoki jeetege to hum hi na bhai)
 6. Yatharth Patel (Google Kloud Fecilator annd traitor)
 
-# Cleared Regional Round 
+# Cleared Regional Round of SSIP 2022
