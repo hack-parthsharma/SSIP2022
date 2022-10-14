@@ -1,4 +1,4 @@
-# SSIP2022 - Azadi ka Amrit Mahotsav 
+# SSIP 2022 - Azadi ka Amrit Mahotsav 
 A 36hr marathon hackathon 
 
 DDO File Tracking System for Palanpur Office 
