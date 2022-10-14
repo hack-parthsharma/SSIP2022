@@ -12,4 +12,3 @@ In Our application we are gonna develope a following features.
   <li>Admin can add department and watch over all files.</li>
   <li>Admin can manage the database or user of each department.</li>
 </ul>
-
