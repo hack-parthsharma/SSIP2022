@@ -1,7 +1,9 @@
 # SSIP2022 - Azadi ka Amrit Mahotsav 
+A 36hr marathon hackathon 
+
 DDO File Tracking System for Palanpur Office 
 
-# Tech Stack Used : 
+# Tech Stack Being Used : 
 Hyper Text Markup Language, Cascading Style Sheets, JavaScript, PHP and MySQL 
 
 # Team Members: 
