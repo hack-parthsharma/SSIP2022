@@ -6,8 +6,8 @@ JavaScript, PHP and MySQL
 
 # Team Members: 
 
-1. Parth Sharma (Senior Developer)
-2. Faizal Kadiwal 
+1. Parth Sharma (Senior Developer like Ravi Ravu~ru)
+2. Faizal Kadiwal (Phool Stek Develaper)
 3. Krish Patel 
 4. Manan Patel 
 5. Nirnay Raval 
