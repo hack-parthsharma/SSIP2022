@@ -2,7 +2,7 @@
 DDO File Tracking System for Palanpur Office 
 
 # Tech Stack Used : 
-JavaScript, PHP and MySQL 
+HTML, CSS, JavaScript, PHP and MySQL 
 
 # Team Members: 
 
