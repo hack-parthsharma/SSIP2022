@@ -2,7 +2,7 @@
 DDO File Tracking System for Palanpur Office 
 
 # Tech Stack Used : 
-HTML, CSS, JavaScript, PHP and MySQL 
+Hyper Text Markup Language, Cascading Style Sheets, JavaScript, PHP and MySQL 
 
 # Team Members: 
 
