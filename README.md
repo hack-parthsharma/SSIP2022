@@ -6,7 +6,7 @@ JavaScript, PHP and MySQL
 
 # Team Members: 
 
-1. Parth Sharma 
+1. Parth Sharma (Senior Developer)
 2. Faizal Kadiwal 
 3. Krish Patel 
 4. Manan Patel 
