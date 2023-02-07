@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="http://localhost/ssip/SSIP2022/style/login.css">
+  <link rel="stylesheet" href="http://localhost/ssip2023/style/login.css">
 
 </head>
 
@@ -45,7 +45,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "ssip";
+  $dbname = "test";
   $userid=$_POST['userid'];
   $pass=$_POST['pass'];
   // Create connection
@@ -63,7 +63,7 @@
     while($row = $result->fetch_assoc()) {
       if($row["email"]==$userid && $row["pass"]==$pass)
       {
-        header("Location: http://localhost/ssip/SSIP2022/assets/user_dashboard.html");
+        header("Location: http://localhost/ssip2023/assets/user_dashboard.html");
       }
       else
       {
