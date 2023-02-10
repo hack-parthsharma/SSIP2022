@@ -35,10 +35,10 @@
 
           <div class="col3">
                <div class="left">
-                    <a href="#" onclick="AllFilesTable()" class="active">All Files</a>
-                    <a href="#" onclick="">Approved Files</a>
-                    <a href="#" onclick="">Rejected Files</a>
-                    <a href="#" onclick="">Pending Files</a>
+                    <a href="#" onclick="AllFilesTable()" id="allfile">All Files</a>
+                    <a href="#" onclick="" id="approvefile">Approved Files</a>
+                    <a href="#" onclick="" id="rejectfile">Rejected Files</a>
+                    <a href="#" onclick="" id="pendingfile">Pending Files</a>
                </div>
 
           </div>
@@ -256,8 +256,35 @@
      <script src="http://localhost/ssip2022/scripts/dashboard.js"></script>
      <script src="http://localhost/ssip2022/scripts/angular-app.js"></script>
      <script src="../scripts/dashboard.js"></script>
-     <script src="../scripts/angular-app.js"></script>
-     <script src="../scripts/getdata.js"></script>
+     <script src="../scripts/angular-app.php"></script>
+     
+<script>
+     (function () {
+
+          var resources = <?php include('1.php') ?>;
+          var users = [
+               {
+                    name: "Manan Patel"
+               },
+          ];
+     
+          angular.module('dashboard', [])
+               .controller('searchitems', searchitems)
+               .controller('userController', userController);
+          searchitems.$inject = ['$scope'];
+          viewController.$inject = ['$scope'];
+     
+          function searchitems($scope) {
+               $scope.templetes = resources;
+               // $scope.recent_follow = recent_follow;
+          };
+     
+          function userController($scope) {
+               $scope.user = users;
+           };
+     })();
+     
+     </script>
 </body>
 
 </html>

@@ -125,18 +125,16 @@
   color: aliceblue;
 }
 .col3 a:hover {
-  background-color: rgb(196, 188, 188);
-  /* background-color: rgb(156, 40, 40); */
+  background-color: rgb(164, 233, 243);
   color: black;
-  /* border: 1px solid black; */
   border: 0px;
 }
-.col3 a:focus {
-  background-color: rgb(196, 188, 188);
-  /* background-color: rgb(156, 40, 40); */
+.col3 a.active{
+  background-color: rgb(164, 233, 243);
   color: black;
-  /* border: 1px solid black; */
+  border: 0px;
 }
+
 
 .right {
   float: right;
