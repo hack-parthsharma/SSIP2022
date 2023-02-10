@@ -1,6 +1,3 @@
-<<<<<<< HEAD
-<?php include('../allfiledata.php')?>
-=======
 <?php
 include('../allfiledata.php');
 include('../approvedfile.php');
@@ -8,7 +5,7 @@ include('../pendingfile.php');
 include('../rejectedfile.php');
 ?>
 
->>>>>>> 3d2699b004e1c713055f6e7cc048e3e137e4029b
+
 <!DOCTYPE html>
 <html lang="en" ng-app="dashboard">
 
@@ -31,7 +28,29 @@ include('../rejectedfile.php');
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap"
           rel="stylesheet">
      <link rel="stylesheet" href="../style/dashboard.css ">
-     <link rel="stylesheet" href="../style/tabview.css">
+     <style>
+          .tablink {
+               background-color: #1f1f1f;
+               color: white;
+               float: left;
+               border: none;
+               outline: none;
+               cursor: pointer;
+               padding: 14px 16px;
+               font-size: 17px;
+               width: fit-content;
+               height: 3.5rem;
+          }
+
+          .tablink:hover {
+               background-color: #60b8c4;
+          }
+
+          /* Style the tab content */
+          .tabcontent {
+               display: none;
+          }
+     </style>
      <title>Dashboard</title>
 </head>
 
@@ -40,7 +59,7 @@ include('../rejectedfile.php');
 
           <div class="col1" ng-repeat="u in user">
                <div class="greet-container">
-                    <h1 class="greeting"></h1><span> {{u.name}}</span>
+                    <h1 class="greeting"></h1><span> Faizal</span>
                </div>
           </div>
 
@@ -115,7 +134,8 @@ include('../rejectedfile.php');
                                                   <?php echo $data['Remarks'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                                  <input type="button" value="Check Files" class="file-check"
+                                                       onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
                                                   <?php echo $data['Status'] ?? ''; ?>
@@ -142,81 +162,6 @@ include('../rejectedfile.php');
                          </tbody>
                     </table>
                </div>
-
-<<<<<<< HEAD
-
-               <table id="files-table" class="files-table">
-                    <thead>
-                         <tr>
-                              <th></th>
-                              <th>CaseID</th>
-                              <th>Department</th>
-                              <th>Subject</th>
-                              <th>Created By</th>
-                              <th>Creation Date</th>
-                              <th>Remarks</th>
-                              <th>Documents</th>
-                              <th>Status</th>
-                              <th>Current Dep.</th>
-                              <th>Destination</th>
-                         </tr>
-                    </thead>
-                    <tbody>
-                    <?php
-                              if (is_array($fetchData)) {
-                                   $sn = 1;
-                                   foreach ($fetchData as $data) {
-                                        ?>
-                                        <tr>
-                                             <td>
-                                                  <?php echo $sn; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['CaseID'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Department'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Subject'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['CreationDate'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Remarks'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Documents'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Status'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
-                                             </td>
-                                        </tr>
-                                        <?php
-                                        $sn++;
-                                   }
-                              } else { ?>
-                                   <tr>
-                                        <td colspan="8">
-                                             <?php echo $fetchData; ?>
-                                        </td>
-                                   <tr>
-                                        <?php
-                              } ?>
-                    </tbody>
-               </table>
-=======
->>>>>>> 3d2699b004e1c713055f6e7cc048e3e137e4029b
           </div>
 
           <div id="Approved" class="tabcontent">
@@ -523,7 +468,7 @@ include('../rejectedfile.php');
                     </div>
                     <div>
                          <h4>Documents</h4>
-                         <input type="file" name="file" id="file"      multiple required>
+                         <input type="file" name="file" id="file" multiple required>
                          <div id="filelist"></div>
                     </div>
                     <div>
@@ -546,84 +491,7 @@ include('../rejectedfile.php');
                </div>
                <div class="fileview" style="position: relative;">
                     <table>
-                         <tr style="position: sticky;top: 0;background-color: rgb(37, 37, 37);color: white;">
-                              <th>File Name</th>
-                              <th>From Dep.</th>
-                              <th>To Dep.</th>
-                              <th>Date</th>
-                         </tr>
-                         <tr>
-                              <td>C003_Farming.pdf</td>
-                              <td>Farming</td>
-                              <td>DDO</td>
-                              <td>20/02/2003</td>
-                         </tr>
-                         <tr>
-                              <td>C010_survey.csv</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2010</td>
-                         </tr>
-                         <tr>
-                              <td>C015_survey.xlsx</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2011</td>
-                         </tr>
-                         <tr>
-                              <td>C003_Farming.pdf</td>
-                              <td>Farming</td>
-                              <td>DDO</td>
-                              <td>20/02/2003</td>
-                         </tr>
-                         <tr>
-                              <td>C010_survey.csv</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2010</td>
-                         </tr>
-                         <tr>
-                              <td>C015_survey.xlsx</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2011</td>
-                         </tr>
-                         <tr>
-                              <td>C003_Farming.pdf</td>
-                              <td>Farming</td>
-                              <td>DDO</td>
-                              <td>20/02/2003</td>
-                         </tr>
-                         <tr>
-                              <td>C010_survey.csv</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2010</td>
-                         </tr>
-                         <tr>
-                              <td>C015_survey.xlsx</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2011</td>
-                         </tr>
-                         <tr>
-                              <td>C003_Farming.pdf</td>
-                              <td>Farming</td>
-                              <td>DDO</td>
-                              <td>20/02/2003</td>
-                         </tr>
-                         <tr>
-                              <td>C010_survey.csv</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2010</td>
-                         </tr>
-                         <tr>
-                              <td>C015_survey.xlsx</td>
-                              <td>Landing</td>
-                              <td>DDO</td>
-                              <td>06/18/2011</td>
-                         </tr>
+                         <tr></tr>
                     </table>
                </div>
                <div class="all-btn">

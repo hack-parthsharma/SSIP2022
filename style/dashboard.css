@@ -117,23 +117,6 @@
   justify-content: space-between;
 }
 
-.col3 a {
-  float: left;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  color: aliceblue;
-}
-.col3 a:hover {
-  background-color: rgb(164, 233, 243);
-  color: black;
-  border: 0px;
-}
-.col3 a.active{
-  background-color: rgb(164, 233, 243);
-  color: black;
-  border: 0px;
-}
 
 
 .right {

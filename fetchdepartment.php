@@ -1,13 +1,11 @@
 <?php
 include('database.php');
 
-$Department = $var2;
-
 $db = $conn;
-$tableName = "ddo";
-$columns = ['CaseID','Department','Subject','CreatedBy','CreationDate','Remarks','Documents','Status','CurrentDepartment','DestinationDepartment'];
-$fetchDataPending = fetch_data_pending($db, $tableName, $columns);
-function fetch_data_pending($db, $tableName, $columns)
+$tableName = "departments";
+$columns = ['id','name'];
+$fetchDepartment = fetch_department($db, $tableName, $columns);
+function fetch_department($db, $tableName, $columns)
 {
   if (empty($db)) {
     $msg = "Database connection error";
@@ -17,8 +15,7 @@ function fetch_data_pending($db, $tableName, $columns)
     $msg = "Table Name is empty";
   } else {
     $columnName = implode(",", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Pending'";
-    // $query = "SELECT * FROM ddo ORDER BY id DESC";
+    $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY id ASC";
     $result = $db->query($query);
     if ($result == true) {
       if ($result->num_rows > 0) {

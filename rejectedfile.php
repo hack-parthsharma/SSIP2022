@@ -1,6 +1,5 @@
 <?php
 include('database.php');
-
 $db = $conn;
 $tableName = "ddo";
 $columns = ['CaseID','Department','Subject','CreatedBy','CreationDate','Remarks','Documents','Status','CurrentDepartment','DestinationDepartment'];

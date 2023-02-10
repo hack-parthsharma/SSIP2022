@@ -1,3 +1,6 @@
+<?php
+include('fetchdepartment.php');
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,14 +18,27 @@
     <form id="login-form" method="post">
       <p>
         <select name="department" id="department">
-            <option value="select" selected="true" disabled>--select department--</option>
-            <option value="farmer">farmer</option>
-            <option value="land">land</option>
-            <option value="ddo">ddo</option>
+          <?php
+          if (is_array($fetchDepartment)) {
+
+            foreach ($fetchDepartment as $data) {
+              ?>
+              <option value="<?php echo $data['id'] ?? ''; ?>"><?php echo $data['name'] ?? ''; ?></option>
+
+              <?php
+            }
+          } else { ?>
+            <tr>
+              <td colspan="8">
+                <?php echo $fetchDepartment; ?>
+              </td>
+            <tr>
+              <?php
+          } ?>
         </select>
       </p>
       <p>
-        <input type="text" id="userid" name="userid" placeholder="UserID" required><i
+        <input type="text" id="userid" name="user" placeholder="UserName" required><i
           class="validation"><span></span><span></span></i>
       </p>
       <p>
@@ -32,7 +48,7 @@
       <p>
         <input type="submit" id="login" value="Login">
       </p>
-    </form> 
+    </form>
     <div id="create-account-wrap">
       <p>Forget Password ? <a href="#">Contact Admin</a>
       <p>
@@ -46,34 +62,56 @@
   $username = "root";
   $password = "";
   $dbname = "ssip";
-  @$userid=$_POST['userid'];
-  @$pass=$_POST['pass'];
+  @$userid = $_POST['user'];
+  @$pass = $_POST['pass'];
+  @$dep = $_POST['department'];
   // Create connection
+  
   $conn = new mysqli($servername, $username, $password, $dbname);
   // Check connection
   if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
   }
-  
-  $sql = "SELECT email,pass FROM abc  "; 
-  // Create variables of email and pass from the database table abc
-  $result = $conn->query($sql);
-  if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-      if($row["email"]==$userid && $row["pass"]==$pass)
-      {
-        header("Location: http://localhost/ssip2022/assets/user_dashboard.php");
-      }
-      // else
-      // {
-      //   echo "Login fails";
-      // }
+  $data = "";
+  if ($dep == 'A001') {
+    $sql = "SELECT * FROM departments,users WHERE users.department_id = '" . $dep . "' AND departments.id = users.department_id AND users.password = '" . $pass . "' AND users.username ='" . $userid . "'";
+
+    @$result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $LoginUser = $row["username"];
+      $LoginDepartment = $row["name"];
+      session_start();
+      $LoginData = array(
+        'user' => $LoginUser,
+        'department' => $LoginDepartment
+      );
+
+      $_SESSION['LoginSetup'] = $LoginData;
+      header("Location: http://localhost/ssip2022/assets/user_dashboard.php");
     }
   } else {
-    echo "0 results";
+    $sql = "SELECT * FROM departments,users WHERE users.department_id = '" . $dep . "' AND departments.id = users.department_id AND users.password = '" . $pass . "' AND users.username ='" . $userid . "'";
+    // Create variables of email and pass from the database table abc
+    @$result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+      $row = $result->fetch_assoc();
+      $LoginUser = $row["username"];
+      $LoginDepartment = $row["name"];
+      session_start();
+      $LoginData = array(
+        'user' => $LoginUser,
+        'department' => $LoginDepartment
+      );
+
+      $_SESSION['LoginSetup'] = $LoginData;
+      header("Location: http://localhost/ssip2022/assets/user_dashboard.php");
+    }
   }
   ?>
+
 </body>
 
 </html>

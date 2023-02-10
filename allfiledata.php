@@ -1,11 +1,13 @@
 <?php
 include('database.php');
+include('session.php');
+$Department = $var2;
 
 $db = $conn;
 $tableName = "ddo";
 $columns = ['CaseID','Department','Subject','CreatedBy','CreationDate','Remarks','Documents','Status','CurrentDepartment','DestinationDepartment'];
-$fetchData = fetch_data($db, $tableName, $columns);
-function fetch_data($db, $tableName, $columns)
+$fetchData = fetch_data($db, $tableName, $columns,$Department);
+function fetch_data($db, $tableName, $columns,$Department)
 {
   if (empty($db)) {
     $msg = "Database connection error";
@@ -15,7 +17,11 @@ function fetch_data($db, $tableName, $columns)
     $msg = "Table Name is empty";
   } else {
     $columnName = implode(",", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY CaseID ASC";
+    if($Department == 'admin'){
+      $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY CaseID ASC";
+    }else{
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' ORDER BY CaseID ASC";
+    }
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
     $result = $db->query($query);
     if ($result == true) {
