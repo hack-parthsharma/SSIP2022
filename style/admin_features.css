@@ -1,0 +1,15 @@
+#add_dep , #add_user{
+    background-color: rgba(7, 7, 7, 0.926);
+    color: aliceblue;
+    padding: .6rem;
+    font-size: 1rem;
+    transition: all ease .4s;
+    border: none;
+    outline: none;
+}
+#add_dep:hover , #add_user:hover
+{
+    background-color: rgb(168, 221, 243);
+    color: rgba(0, 0, 0, 0.896);
+    cursor: pointer;
+}

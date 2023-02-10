@@ -1,8 +1,5 @@
 <?php
 include('../allfiledata.php');
-include('../approvedfile.php');
-include('../pendingfile.php');
-include('../rejectedfile.php');
 ?>
 
 
@@ -28,6 +25,7 @@ include('../rejectedfile.php');
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap"
           rel="stylesheet">
      <link rel="stylesheet" href="../style/dashboard.css ">
+     <link rel="stylesheet" href="../style/admin_features.css">
      <style>
           .tablink {
                background-color: #1f1f1f;
@@ -58,8 +56,17 @@ include('../rejectedfile.php');
      <section class="dash-wrapper" ng-controller="userController">
 
           <div class="col1" ng-repeat="u in user">
-               <div class="greet-container">
-                    <h1 class="greeting"></h1><span> Faizal</span>
+               <div class="greet-container" style="display:felx;justify-content: space-between;">
+                    <div style="display:flex;"><h1 class="greeting"></h1><span>
+                         <?php echo $var1 ?>
+                    </span></div>
+                    <div >
+                         <?php 
+                         if($var1 == 'admin'){
+                              include('../admin/admin_feature.php');
+                         }
+                         ?>
+                    </div>
                </div>
           </div>
 
@@ -226,7 +233,8 @@ include('../rejectedfile.php');
                                                   <?php echo $data['Remarks'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                                  <input type="button" value="Check Files" class="file-check"
+                                                       onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
                                                   <?php echo $data['Status'] ?? ''; ?>
@@ -317,7 +325,8 @@ include('../rejectedfile.php');
                                                   <?php echo $data['Remarks'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                                  <input type="button" value="Check Files" class="file-check"
+                                                       onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
                                                   <?php echo $data['Status'] ?? ''; ?>
@@ -408,7 +417,8 @@ include('../rejectedfile.php');
                                                   <?php echo $data['Remarks'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                                  <input type="button" value="Check Files" class="file-check"
+                                                       onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
                                                   <?php echo $data['Status'] ?? ''; ?>
