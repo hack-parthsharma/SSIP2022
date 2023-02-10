@@ -63,7 +63,7 @@
     while($row = $result->fetch_assoc()) {
       if($row["email"]==$userid && $row["pass"]==$pass)
       {
-        header("Location: http://localhost/ssip2022/assets/user_dashboard.html");
+        header("Location: http://localhost/ssip2022/assets/user_dashboard.php");
       }
       // else
       // {
