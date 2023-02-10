@@ -45,7 +45,7 @@
   $servername = "localhost";
   $username = "root";
   $password = "";
-  $dbname = "test";
+  $dbname = "ssip";
   @$userid=$_POST['userid'];
   @$pass=$_POST['pass'];
   // Create connection
