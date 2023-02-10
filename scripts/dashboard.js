@@ -27,6 +27,7 @@ $(document).ready(function () {
 
 
 });
+
 // table show
 function AllFilesTable() {
      $(".col4").addClass("active");
@@ -37,9 +38,7 @@ function MissingRequestTable() {
      $(".col5").addClass("active");
      $(".col4").removeClass("active");
 };
-
-
-
+     
 function newFileOpen() {
      $(".newfilemodel").addClass("active");
 };

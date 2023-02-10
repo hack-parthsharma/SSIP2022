@@ -129,6 +129,7 @@
   /* background-color: rgb(156, 40, 40); */
   color: black;
   /* border: 1px solid black; */
+  border: 0px;
 }
 .col3 a:focus {
   background-color: rgb(196, 188, 188);
@@ -136,6 +137,7 @@
   color: black;
   /* border: 1px solid black; */
 }
+
 .right {
   float: right;
 }
@@ -218,6 +220,7 @@
   width: 500px;
   height: 80%;
   padding: 2rem;
+  overflow: scroll;
   background-color: white;
   position: relative;
 }

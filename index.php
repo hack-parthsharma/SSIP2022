@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <title>Login</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
-  <link rel="stylesheet" href="http://localhost/ssip2023/style/login.css">
+  <link rel="stylesheet" href="./style/login.css">
 
 </head>
 
@@ -32,7 +32,7 @@
       <p>
         <input type="submit" id="login" value="Login">
       </p>
-    </form>
+    </form> 
     <div id="create-account-wrap">
       <p>Forget Password ? <a href="#">Contact Admin</a>
       <p>
@@ -46,8 +46,8 @@
   $username = "root";
   $password = "";
   $dbname = "test";
-  $userid=$_POST['userid'];
-  $pass=$_POST['pass'];
+  @$userid=$_POST['userid'];
+  @$pass=$_POST['pass'];
   // Create connection
   $conn = new mysqli($servername, $username, $password, $dbname);
   // Check connection
@@ -55,7 +55,7 @@
     die("Connection failed: " . $conn->connect_error);
   }
   
-  $sql = "SELECT email,pass FROM abc  ";
+  $sql = "SELECT email,pass FROM abc  "; 
   // Create variables of email and pass from the database table abc
   $result = $conn->query($sql);
   if ($result->num_rows > 0) {
@@ -63,12 +63,12 @@
     while($row = $result->fetch_assoc()) {
       if($row["email"]==$userid && $row["pass"]==$pass)
       {
-        header("Location: http://localhost/ssip2023/assets/user_dashboard.html");
+        header("Location: http://localhost/ssip2022/assets/user_dashboard.html");
       }
-      else
-      {
-        echo "Login fails";
-      }
+      // else
+      // {
+      //   echo "Login fails";
+      // }
     }
   } else {
     echo "0 results";
