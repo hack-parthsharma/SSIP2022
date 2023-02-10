@@ -4,8 +4,8 @@ include('database.php');
 $db = $conn;
 $tableName = "ddo";
 $columns = ['CaseID','Department','Subject','CreatedBy','CreationDate','Remarks','Documents','Status','CurrentDepartment','DestinationDepartment'];
-$fetchData = fetch_data($db, $tableName, $columns);
-function fetch_data($db, $tableName, $columns)
+$fetchDataApproved = fetch_data_approved($db, $tableName, $columns);
+function fetch_data_approved($db, $tableName, $columns)
 {
   if (empty($db)) {
     $msg = "Database connection error";
@@ -15,7 +15,7 @@ function fetch_data($db, $tableName, $columns)
     $msg = "Table Name is empty";
   } else {
     $columnName = implode(",", $columns);
-    $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY CaseID ASC";
+    $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Approve'";
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
     $result = $db->query($query);
     if ($result == true) {

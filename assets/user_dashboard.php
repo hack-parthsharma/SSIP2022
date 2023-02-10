@@ -1,5 +1,8 @@
 <?php
 include('../allfiledata.php');
+include('../approvedfile.php');
+include('../pendingfile.php');
+include('../rejectedfile.php');
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +27,7 @@ include('../allfiledata.php');
      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap"
           rel="stylesheet">
      <link rel="stylesheet" href="../style/dashboard.css ">
-     <link rel="stylesheet" href="../style.tabview.css">
+     <link rel="stylesheet" href="../style/tabview.css">
      <title>Dashboard</title>
 </head>
 
@@ -139,18 +142,277 @@ include('../allfiledata.php');
           </div>
 
           <div id="Approved" class="tabcontent">
-               <h1>Paris</h1>
-               <p>Paris is the capital of France.</p>
+               <div class="col4 active" ng-controller="searchitems">
+
+                    <div class="search-wrapper">
+                         <div class="search-container">
+                              <form action="#">
+                                   <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
+                                        name="search">
+                                   <button type="submit"><i class="bx bx-search"></i></button>
+                              </form>
+                         </div>
+                         <div class="new-btn">
+                              <button class="button" onclick="newFileOpen()">New File</button>
+                         </div>
+                    </div>
+
+
+                    <table id="files-table" class="files-table">
+                         <thead>
+                              <tr>
+                                   <th></th>
+                                   <th>CaseID</th>
+                                   <th>Department</th>
+                                   <th>Subject</th>
+                                   <th>Created By</th>
+                                   <th>Creation Date</th>
+                                   <th>Remarks</th>
+                                   <th>Documents</th>
+                                   <th>Status</th>
+                                   <th>Current Dep.</th>
+                                   <th>Destination</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <?php
+                              if (is_array($fetchDataApproved)) {
+                                   $sn = 1;
+                                   foreach ($fetchDataApproved as $data) {
+                                        ?>
+                                        <tr>
+                                             <td>
+                                                  <?php echo $sn; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Department'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreationDate'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Status'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                             </td>
+                                        </tr>
+                                        <?php
+                                        $sn++;
+                                   }
+                              } else { ?>
+                                   <tr>
+                                        <td colspan="8">
+                                             <?php echo $fetchDataApproved; ?>
+                                        </td>
+                                   <tr>
+                                        <?php
+                              } ?>
+
+                         </tbody>
+                    </table>
+               </div>
           </div>
 
           <div id="Pending" class="tabcontent">
-               <h1>Tokyo</h1>
-               <p>Tokyo is the capital of Japan.</p>
+               <div class="col4 active" ng-controller="searchitems">
+
+                    <div class="search-wrapper">
+                         <div class="search-container">
+                              <form action="#">
+                                   <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
+                                        name="search">
+                                   <button type="submit"><i class="bx bx-search"></i></button>
+                              </form>
+                         </div>
+                         <div class="new-btn">
+                              <button class="button" onclick="newFileOpen()">New File</button>
+                         </div>
+                    </div>
+
+
+                    <table id="files-table" class="files-table">
+                         <thead>
+                              <tr>
+                                   <th></th>
+                                   <th>CaseID</th>
+                                   <th>Department</th>
+                                   <th>Subject</th>
+                                   <th>Created By</th>
+                                   <th>Creation Date</th>
+                                   <th>Remarks</th>
+                                   <th>Documents</th>
+                                   <th>Status</th>
+                                   <th>Current Dep.</th>
+                                   <th>Destination</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <?php
+                              if (is_array($fetchDataPending)) {
+                                   $sn = 1;
+                                   foreach ($fetchDataPending as $data) {
+                                        ?>
+                                        <tr>
+                                             <td>
+                                                  <?php echo $sn; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Department'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreationDate'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Status'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                             </td>
+                                        </tr>
+                                        <?php
+                                        $sn++;
+                                   }
+                              } else { ?>
+                                   <tr>
+                                        <td colspan="8">
+                                             <?php echo $fetchDataPending; ?>
+                                        </td>
+                                   <tr>
+                                        <?php
+                              } ?>
+
+                         </tbody>
+                    </table>
+               </div>
           </div>
 
           <div id="Rejected" class="tabcontent">
-               <h1>Oslo</h1>
-               <p>Oslo is the capital of Norway.</p>
+               <div class="col4 active" ng-controller="searchitems">
+
+                    <div class="search-wrapper">
+                         <div class="search-container">
+                              <form action="#">
+                                   <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
+                                        name="search">
+                                   <button type="submit"><i class="bx bx-search"></i></button>
+                              </form>
+                         </div>
+                         <div class="new-btn">
+                              <button class="button" onclick="newFileOpen()">New File</button>
+                         </div>
+                    </div>
+
+
+                    <table id="files-table" class="files-table">
+                         <thead>
+                              <tr>
+                                   <th></th>
+                                   <th>CaseID</th>
+                                   <th>Department</th>
+                                   <th>Subject</th>
+                                   <th>Created By</th>
+                                   <th>Creation Date</th>
+                                   <th>Remarks</th>
+                                   <th>Documents</th>
+                                   <th>Status</th>
+                                   <th>Current Dep.</th>
+                                   <th>Destination</th>
+                              </tr>
+                         </thead>
+                         <tbody>
+                              <?php
+                              if (is_array($fetchDataRejected)) {
+                                   $sn = 1;
+                                   foreach ($fetchDataRejected as $data) {
+                                        ?>
+                                        <tr>
+                                             <td>
+                                                  <?php echo $sn; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Department'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreationDate'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Status'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                             </td>
+                                        </tr>
+                                        <?php
+                                        $sn++;
+                                   }
+                              } else { ?>
+                                   <tr>
+                                        <td colspan="8">
+                                             <?php echo $fetchDataRejected; ?>
+                                        </td>
+                                   <tr>
+                                        <?php
+                              } ?>
+
+                         </tbody>
+                    </table>
+               </div>
+
           </div>
 
      </section>
