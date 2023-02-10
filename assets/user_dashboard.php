@@ -1,3 +1,4 @@
+<?php include('../allfiledata.php')?>
 <!DOCTYPE html>
 <html lang="en" ng-app="dashboard">
 
@@ -75,20 +76,57 @@
                          </tr>
                     </thead>
                     <tbody>
-                         <tr ng-repeat="item in templetes | filter : search">
-                              <td><input type="checkbox" name="" id=""></td>
-                              <td>{{item.CaseID}}</td>
-                              <td>{{item.Department}}</td>
-                              <td>{{item.Subject}}</td>
-                              <td>{{item.CreatedBy}}</td>
-                              <td>{{item.CreatedDate}}</td>
-                              <td>{{item.Remarks}}</td>
-                              <td><input type="button" value="Check Files" class="file-check"
-                                        onclick="viewFileModelOpen()"></td>
-                              <td>{{item.Status}}</td>
-                              <td>{{item.CurrentDep}}</td>
-                              <td>{{item.Destination}}</td>
-                         </tr>
+                    <?php
+                              if (is_array($fetchData)) {
+                                   $sn = 1;
+                                   foreach ($fetchData as $data) {
+                                        ?>
+                                        <tr>
+                                             <td>
+                                                  <?php echo $sn; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Department'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CreationDate'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Documents'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['Status'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                             </td>
+                                        </tr>
+                                        <?php
+                                        $sn++;
+                                   }
+                              } else { ?>
+                                   <tr>
+                                        <td colspan="8">
+                                             <?php echo $fetchData; ?>
+                                        </td>
+                                   <tr>
+                                        <?php
+                              } ?>
                     </tbody>
                </table>
           </div>
@@ -113,7 +151,12 @@
      <section class="newfilemodel">
           <div class="table-wrapper">
                <i class="bx bx-x-circle" onclick="newFileClose()"></i>
-               <form action="/scripts/getdata.js">
+               <!-- <form action="postdata.php" method="post" > -->
+               <form action="postdata.php" method="post" enctype="multipart/form-data">
+                    <div>
+                         <h4>CaseID</h4>
+                         <input type="text" id="caseid" name="caseid" placeholder="caseid" required>
+                    </div>
                     <div>
                          <h4>Department</h4>
                          <input type="text" id="department" name="department" placeholder="department" required>
@@ -132,7 +175,7 @@
                     </div>
                     <div>
                          <h4>Documents</h4>
-                         <input type="file" name="file" id="file" onchange="updateList()" multiple required>
+                         <input type="file" name="file" id="file"      multiple required>
                          <div id="filelist"></div>
                     </div>
                     <div>
