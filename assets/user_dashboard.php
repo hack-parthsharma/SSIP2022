@@ -101,6 +101,7 @@ include('../allfiledata.php');
                               <tr>
                                    <th></th>
                                    <th>CaseID</th>
+                                   <th>Department</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -123,6 +124,9 @@ include('../allfiledata.php');
                                              </td>
                                              <td>
                                                   <?php echo $data['case_id'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['department'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <?php echo $data['subject_name'] ?? ''; ?>
@@ -189,6 +193,7 @@ include('../allfiledata.php');
                               <tr>
                                    <th></th>
                                    <th>case_id</th>
+                                   <th>Department</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -211,6 +216,9 @@ include('../allfiledata.php');
                                              </td>
                                              <td>
                                                   <?php echo $data['case_id'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['department'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <?php echo $data['subject_name'] ?? ''; ?>
@@ -277,6 +285,7 @@ include('../allfiledata.php');
                               <tr>
                                    <th></th>
                                    <th>case_id</th>
+                                   <th>Department</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -299,6 +308,9 @@ include('../allfiledata.php');
                                              </td>
                                              <td>
                                                   <?php echo $data['case_id'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['department'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <?php echo $data['subject_name'] ?? ''; ?>
@@ -365,6 +377,7 @@ include('../allfiledata.php');
                               <tr>
                                    <th></th>
                                    <th>case_id</th>
+                                   <th>department</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -387,6 +400,9 @@ include('../allfiledata.php');
                                              </td>
                                              <td>
                                                   <?php echo $data['case_id'] ?? ''; ?>
+                                             </td>
+                                             <td>
+                                                  <?php echo $data['department'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <?php echo $data['subject_name'] ?? ''; ?>
@@ -445,6 +461,10 @@ include('../allfiledata.php');
                          <input type="text" id="caseid" name="caseid" placeholder="caseid" required>
                     </div>
                     <div>
+                         <h4>Department</h4>
+                         <input type="text" id="department" name="department" placeholder="department" required>
+                    </div>
+                    <div>
                          <h4>Subject</h4>
                          <input type="text" id="subject" name="subject" placeholder="subject" required>
                     </div>
@@ -462,8 +482,8 @@ include('../allfiledata.php');
                          <div id="filelist"></div>
                     </div>
                     <div>
-                         <h4>Department</h4>
-                         <input type="text" id="department" name="department" placeholder="department" required>
+                         <h4>Current Department</h4>
+                         <input type="text" id="current_department" name="current_department" placeholder="department" required>
                     </div>
                     <div>
                          <h4>Next Department</h4>

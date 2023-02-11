@@ -8,20 +8,21 @@ if (mysqli_connect_errno()) {
 }
 // get values from form
 $cid = $_POST['caseid'];
+$dep = $_POST['department'];
 $s = $_POST['subject'];
 $cb = $_POST['Created_by'];
 $date = date('d-m-y');
 $r = $_POST['remarks'];
 // Upload file name
 $fl = $_FILES['file']['name'];
-$d = $_POST['department'];
+$d = $_POST['current_department'];
 $stu = 'pending';
 // $stu=$_POST['status'];
 $cd = $d;
 $des = $_POST['Destination'];
 //Insert into database named ddo.
 
-$sql = "INSERT INTO ddo VALUES ('$cid','$s','$cb','$date','$r','$fl','$stu','$cd','$des')";
+$sql = "INSERT INTO ddo VALUES ('$cid','$dep','$s','$cb','$date','$r','$fl','$stu','$cd','$des')";
 
 if (!mysqli_query($con, $sql)) {
     die('Error: ' . mysqli_error($con));
@@ -62,5 +63,5 @@ if (mysqli_query($con, $sql)) {
 }
 // close the connection
 mysqli_close($con);
-header("Location:user_dashboard.php");
+// header("Location:user_dashboard.php");
 ?>
