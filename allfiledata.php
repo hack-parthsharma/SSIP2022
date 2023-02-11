@@ -6,14 +6,12 @@ $user = $var1;
 
 $db = $conn;
 $tableName = "ddo";
-$columns = ['CaseID', 'Department', 'Subject', 'CreatedBy', 'CreationDate', 'Remarks', 'Documents', 'Status', 'CurrentDepartment', 'DestinationDepartment'];
-$fetchData = fetch_data($db, $tableName, $columns, $Department);
-$fetchDataRejected = fetch_data_rejected($db, $tableName, $columns, $Department);
-$fetchDataApproved = fetch_data_approved($db, $tableName, $columns, $Department);
-$fetchDataPending = fetch_data_pending($db, $tableName, $columns, $Department);
-$fetchDataDepartment = fetch_data_department($db, 'departments', ['id','name']);
-// $deleteDepartment = del_dep($db,'departments',['id','name']);
-function fetch_data($db, $tableName, $columns, $Department)
+$columns = ['CaseID','Department','Subject','CreatedBy','CreationDate','Remarks','Documents','Status','CurrentDepartment','DestinationDepartment'];
+$fetchData = fetch_data($db, $tableName, $columns,$Department);
+$fetchDataRejected = fetch_data_rejected($db, $tableName, $columns,$Department);
+$fetchDataApproved = fetch_data_approved($db, $tableName, $columns,$Department);
+$fetchDataPending = fetch_data_pending($db, $tableName, $columns,$Department);
+function fetch_data($db, $tableName, $columns,$Department)
 {
   if (empty($db)) {
     $msg = "Database connection error";
@@ -23,10 +21,10 @@ function fetch_data($db, $tableName, $columns, $Department)
     $msg = "Table Name is empty";
   } else {
     $columnName = implode(",", $columns);
-    if ($Department == 'admin') {
+    if($Department == 'admin'){
       $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY CaseID ASC";
-    } else {
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '" . $Department . "' ORDER BY CaseID ASC";
+    }else{
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' ORDER BY CaseID ASC";
     }
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
     $result = $db->query($query);
@@ -55,10 +53,10 @@ function fetch_data_rejected($db, $tableName, $columns, $Department)
   } else {
     $columnName = implode(",", $columns);
 
-    if ($Department == 'admin') {
+    if($Department == 'admin'){
       $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Rejected'";
-    } else {
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '" . $Department . "' AND Status='Rejected'";
+    }else{
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' AND Status='Rejected'";
     }
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
     $result = $db->query($query);
@@ -87,10 +85,10 @@ function fetch_data_approved($db, $tableName, $columns, $Department)
   } else {
     $columnName = implode(",", $columns);
 
-    if ($Department == 'admin') {
+    if($Department == 'admin'){
       $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Approve'";
-    } else {
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '" . $Department . "' AND Status='Approve'";
+    }else{
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' AND Status='Approve'";
     }
 
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
@@ -120,10 +118,10 @@ function fetch_data_pending($db, $tableName, $columns, $Department)
   } else {
     $columnName = implode(",", $columns);
 
-    if ($Department == 'admin') {
+    if($Department == 'admin'){
       $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Pending'";
-    } else {
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '" . $Department . "' AND Status='Pending'";
+    }else{
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' AND Status='Pending'";
     }
 
 
