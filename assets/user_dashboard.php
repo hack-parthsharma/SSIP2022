@@ -75,7 +75,7 @@ include('../allfiledata.php');
                     <button class="tablink" onclick="openCity('All', this)" id="defaultOpen">All Files</button>
                     <button class="tablink" onclick="openCity('Approved', this)">Approved Files</button>
                     <button class="tablink" onclick="openCity('Pending', this)">Pending Files</button>
-                    <button class="tablink" onclick="openCity('Rejected', this)">Rejected Files</button>
+                    <button class="tablink" onclick="openCity('Rejected', this)">Track Files</button>
                </div>
 
           </div>
@@ -376,58 +376,34 @@ include('../allfiledata.php');
                          <thead>
                               <tr>
                                    <th></th>
-                                   <th>case_id</th>
-                                   <th>department</th>
-                                   <th>Subject</th>
-                                   <th>Created By</th>
-                                   <th>Creation Date</th>
-                                   <th>Remarks</th>
-                                   <th>Documents</th>
-                                   <th>Status</th>
-                                   <th>Current Dep.</th>
-                                   <th>Next Department</th>
+                                   <th>Case Id</th>
+                                   <th>User Name</th>
+                                   <th>User Department</th>
+                                   <th>TimeStamp</th>
                               </tr>
                          </thead>
                          <tbody>
                               <?php
-                              if (is_array($fetchDataRejected)) {
+                              if (is_array($fetchtrack)) {
                                    $sn = 1;
-                                   foreach ($fetchDataRejected as $data) {
+                                   foreach ($fetchtrack as $data) {
                                         ?>
                                         <tr>
                                              <td>
                                                   <?php echo $sn; ?>
                                              </td>
+
                                              <td>
                                                   <?php echo $data['case_id'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['department'] ?? ''; ?>
+                                                  <?php echo $data['username'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['subject_name'] ?? ''; ?>
+                                                  <?php echo $data['user_department'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['created_by'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['creation_date'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['remarks'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <input type="button" value="Check Files" class="file-check"
-                                                       onclick="viewFileModelOpen()">
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['status'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['current_department'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['next_department'] ?? ''; ?>
+                                                  <?php echo $data['timestamp'] ?? ''; ?>
                                              </td>
                                         </tr>
                                         <?php
@@ -436,7 +412,7 @@ include('../allfiledata.php');
                               } else { ?>
                                    <tr>
                                         <td colspan="8">
-                                             <?php echo $fetchDataRejected; ?>
+                                             <?php echo $fetchtrack; ?>
                                         </td>
                                    <tr>
                                         <?php
