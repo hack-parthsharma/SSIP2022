@@ -9,8 +9,7 @@
 </head>
 <body>
     <div>
-        <button id="add_dep">+ Department</button>
-        <button id="add_user">+ User</button>
+        <button id="add_dep"><a href="../admin/add_department.php">+ Department</a></button>
     </div>
 </body>
 </html>

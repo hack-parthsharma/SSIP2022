@@ -1,0 +1,94 @@
+#add-dep-hero {
+        width: 100%;
+    height: fit-content;
+    background-color: rgb(220, 233, 244);
+    box-shadow: 1px 1px 5px;
+    border-radius: 10px;
+    padding: 2rem 0rem;
+}
+
+.col1{
+    width: 100%;
+    padding: .2rem;
+    text-align: center;
+    }
+
+.col2{
+    width: 100%;
+    height: inherit;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    }
+.col2-col1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 40%;
+    }
+.col2-col1 form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.col2-col1 input{
+    width: 70%;
+    height: 2rem;
+    margin: 1rem;
+    font-size: 1rem;
+    padding: 0 1rem;
+    outline: none;
+    border-color: rgb(84, 185, 211);
+}
+#idbtn {
+    background-color: rgb(66, 163, 66);
+    color: aliceblue;
+    width: 5rem;
+    cursor: pointer;
+    transition: all ease .4s;
+    border: none;
+    outline: none;
+    border-radius: 5px;
+}
+#idbtn:hover{
+    background-color: rgb(30, 135, 30);
+    color: aliceblue;
+}
+.col2-col2{
+    width: 50%;
+    height: fit-content;
+    display: flex;
+    justify-content: center;
+}
+.col2-col2::-webkit-scrollbar{
+    display: none;
+}
+.col2-col2 table{
+    font-size: 1.3rem;
+    width: 80%;
+    height: 100%;
+    border-collapse: collapse;
+    text-align: center;
+}
+.col2-col2 table, tr , td, th{
+    border: 2px solid black;
+}
+tr{
+    height: 3rem;
+    background-color: azure;
+}
+th{
+    background-color: rgba(0, 0, 0, 0.911);
+    color: whitesmoke;
+}
+
+#delbtn{
+    color: white;
+    background-color: red;
+    outline: none;
+    border: none;
+    padding: .3rem;
+    border-radius: 5px;
+    cursor: pointer;
+}

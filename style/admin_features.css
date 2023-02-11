@@ -13,3 +13,10 @@
     color: rgba(0, 0, 0, 0.896);
     cursor: pointer;
 }
+
+#add-dep-hero {
+    border: 2px solid red;
+    background-color: red;
+    width: 100%;
+    height: fit-content;
+}
