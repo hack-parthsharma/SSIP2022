@@ -101,7 +101,6 @@ include('../allfiledata.php');
                               <tr>
                                    <th></th>
                                    <th>CaseID</th>
-                                   <th>Department</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -109,7 +108,7 @@ include('../allfiledata.php');
                                    <th>Documents</th>
                                    <th>Status</th>
                                    <th>Current Dep.</th>
-                                   <th>Destination</th>
+                                   <th>Next Department</th>
                               </tr>
                          </thead>
                          <tbody>
@@ -123,35 +122,32 @@ include('../allfiledata.php');
                                                   <?php echo $sn; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                                  <?php echo $data['case_id'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Department'] ?? ''; ?>
+                                                  <?php echo $data['subject_name'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                                  <?php echo $data['created_by'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                                  <?php echo $data['creation_date'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreationDate'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                                  <?php echo $data['remarks'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <input type="button" value="Check Files" class="file-check"
                                                        onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
-                                                  <?php echo $data['Status'] ?? ''; ?>
+                                                  <?php echo $data['status'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                                  <?php echo $data['current_department'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                                  <?php echo $data['next_department'] ?? ''; ?>
                                              </td>
                                         </tr>
                                         <?php
@@ -177,7 +173,7 @@ include('../allfiledata.php');
                     <div class="search-wrapper">
                          <div class="search-container">
                               <form action="#">
-                                   <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
+                                   <input type="text" ng-model="search" placeholder="Search by : case_id , Date ... "
                                         name="search">
                                    <button type="submit"><i class="bx bx-search"></i></button>
                               </form>
@@ -192,8 +188,7 @@ include('../allfiledata.php');
                          <thead>
                               <tr>
                                    <th></th>
-                                   <th>CaseID</th>
-                                   <th>Department</th>
+                                   <th>case_id</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -201,7 +196,7 @@ include('../allfiledata.php');
                                    <th>Documents</th>
                                    <th>Status</th>
                                    <th>Current Dep.</th>
-                                   <th>Destination</th>
+                                   <th>Next Department</th>
                               </tr>
                          </thead>
                          <tbody>
@@ -215,35 +210,32 @@ include('../allfiledata.php');
                                                   <?php echo $sn; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                                  <?php echo $data['case_id'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Department'] ?? ''; ?>
+                                                  <?php echo $data['subject_name'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                                  <?php echo $data['created_by'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                                  <?php echo $data['creation_date'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreationDate'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                                  <?php echo $data['remarks'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <input type="button" value="Check Files" class="file-check"
                                                        onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
-                                                  <?php echo $data['Status'] ?? ''; ?>
+                                                  <?php echo $data['status'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                                  <?php echo $data['current_department'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                                  <?php echo $data['next_department'] ?? ''; ?>
                                              </td>
                                         </tr>
                                         <?php
@@ -269,7 +261,7 @@ include('../allfiledata.php');
                     <div class="search-wrapper">
                          <div class="search-container">
                               <form action="#">
-                                   <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
+                                   <input type="text" ng-model="search" placeholder="Search by : case_id , Date ... "
                                         name="search">
                                    <button type="submit"><i class="bx bx-search"></i></button>
                               </form>
@@ -284,8 +276,7 @@ include('../allfiledata.php');
                          <thead>
                               <tr>
                                    <th></th>
-                                   <th>CaseID</th>
-                                   <th>Department</th>
+                                   <th>case_id</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -293,7 +284,7 @@ include('../allfiledata.php');
                                    <th>Documents</th>
                                    <th>Status</th>
                                    <th>Current Dep.</th>
-                                   <th>Destination</th>
+                                   <th>Next Department</th>
                               </tr>
                          </thead>
                          <tbody>
@@ -307,35 +298,32 @@ include('../allfiledata.php');
                                                   <?php echo $sn; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                                  <?php echo $data['case_id'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Department'] ?? ''; ?>
+                                                  <?php echo $data['subject_name'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                                  <?php echo $data['created_by'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                                  <?php echo $data['creation_date'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreationDate'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                                  <?php echo $data['remarks'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <input type="button" value="Check Files" class="file-check"
                                                        onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
-                                                  <?php echo $data['Status'] ?? ''; ?>
+                                                  <?php echo $data['status'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                                  <?php echo $data['current_department'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                                  <?php echo $data['next_department'] ?? ''; ?>
                                              </td>
                                         </tr>
                                         <?php
@@ -361,7 +349,7 @@ include('../allfiledata.php');
                     <div class="search-wrapper">
                          <div class="search-container">
                               <form action="#">
-                                   <input type="text" ng-model="search" placeholder="Search by : CaseID , Date ... "
+                                   <input type="text" ng-model="search" placeholder="Search by : case_id , Date ... "
                                         name="search">
                                    <button type="submit"><i class="bx bx-search"></i></button>
                               </form>
@@ -376,8 +364,7 @@ include('../allfiledata.php');
                          <thead>
                               <tr>
                                    <th></th>
-                                   <th>CaseID</th>
-                                   <th>Department</th>
+                                   <th>case_id</th>
                                    <th>Subject</th>
                                    <th>Created By</th>
                                    <th>Creation Date</th>
@@ -385,7 +372,7 @@ include('../allfiledata.php');
                                    <th>Documents</th>
                                    <th>Status</th>
                                    <th>Current Dep.</th>
-                                   <th>Destination</th>
+                                   <th>Next Department</th>
                               </tr>
                          </thead>
                          <tbody>
@@ -399,35 +386,32 @@ include('../allfiledata.php');
                                                   <?php echo $sn; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CaseID'] ?? ''; ?>
+                                                  <?php echo $data['case_id'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Department'] ?? ''; ?>
+                                                  <?php echo $data['subject_name'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['Subject'] ?? ''; ?>
+                                                  <?php echo $data['created_by'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreatedBy'] ?? ''; ?>
+                                                  <?php echo $data['creation_date'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CreationDate'] ?? ''; ?>
-                                             </td>
-                                             <td>
-                                                  <?php echo $data['Remarks'] ?? ''; ?>
+                                                  <?php echo $data['remarks'] ?? ''; ?>
                                              </td>
                                              <td>
                                                   <input type="button" value="Check Files" class="file-check"
                                                        onclick="viewFileModelOpen()">
                                              </td>
                                              <td>
-                                                  <?php echo $data['Status'] ?? ''; ?>
+                                                  <?php echo $data['status'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['CurrentDepartment'] ?? ''; ?>
+                                                  <?php echo $data['current_department'] ?? ''; ?>
                                              </td>
                                              <td>
-                                                  <?php echo $data['DestinationDepartment'] ?? ''; ?>
+                                                  <?php echo $data['next_department'] ?? ''; ?>
                                              </td>
                                         </tr>
                                         <?php
@@ -461,10 +445,6 @@ include('../allfiledata.php');
                          <input type="text" id="caseid" name="caseid" placeholder="caseid" required>
                     </div>
                     <div>
-                         <h4>Department</h4>
-                         <input type="text" id="department" name="department" placeholder="department" required>
-                    </div>
-                    <div>
                          <h4>Subject</h4>
                          <input type="text" id="subject" name="subject" placeholder="subject" required>
                     </div>
@@ -482,7 +462,11 @@ include('../allfiledata.php');
                          <div id="filelist"></div>
                     </div>
                     <div>
-                         <h4>Destination</h4>
+                         <h4>Department</h4>
+                         <input type="text" id="department" name="department" placeholder="department" required>
+                    </div>
+                    <div>
+                         <h4>Next Department</h4>
                          <input type="text" id="Destination" name="Destination" placeholder="Destination" required>
                     </div>
                     <div>
@@ -501,7 +485,30 @@ include('../allfiledata.php');
                </div>
                <div class="fileview" style="position: relative;">
                     <table>
-                         <tr></tr>
+                         <tr>
+                         <?php
+// <?php
+$hostName = "localhost";
+$userName = "root";
+$password = "";
+$databaseName = "ssip";
+
+ $conn = new mysqli($hostName, $userName, $password, $databaseName);
+// Check connection
+if ($conn->connect_error) {
+  die("Connection failed: " . $conn->connect_error);
+}
+//  display the data in a tag.
+$sql = "SELECT file_path FROM upload,ddo WHERE upload.case_id = ddo.case_id ";
+$result = mysqli_query($conn, $sql);
+while ($row = mysqli_fetch_array($result)) {
+    // echo "<div id='img_div'>";
+    echo "<a href='" . $row['file_path'] . "' target=_blank>'".$row['file_path']."'</a>";
+    // echo "</div>";
+    echo "</br>";
+}
+?>
+                         </tr>
                     </table>
                </div>
                <div class="all-btn">

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./dashboard.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+   
+    <link rel="stylesheet" href="http://localhost/ssip/SSIP2022/style/dashboard.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Admin Dashboard</h1><br><br>
+    <div class="col3">
+        <div class="left">
+            <a href="#" onclick="AllFilesTable()" id="active">All Files</a>
+            <a href="#" onclick="">Department</a>
+            <a href="#" onclick="">Department User</a>
+        </div>
+    </div>
+
+</body>
+
+</html>
+<html>
+  <head>
+    <style>
+      /* Add some styles to make the page look professional */  
+
+      .container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        background-color: rgb(250, 247, 247);
+      }
+
+      input[type="text"],
+      input[type="number"] {
+        padding: 10px;
+        font-size: 16px;
+        margin: 10px 0;
+        width: 300px;
+        border: 1px solid gray;
+        border-radius: 5px;
+      }
+
+      .form-section {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .submit-button {
+        background-color: green;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      .result-section {
+        margin-top: 50px;
+        font-size: 18px;
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+        background-color: cornsilk;
+        
+      }
+
+      th, td {
+        border: 1px solid rgb(3, 0, 0);
+        padding: 10px;
+        text-align: left;
+      }
+
+      th {
+        background-color: rgb(248, 247, 247);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="form-section">
+        <h2>Department Creation Form</h2>
+        <label for="department-name">Department Name:</label>
+        <input type="text" id="department-name" />
+        <label for="department-id">Department ID:</label>
+        <input type="number" id="department-id" />
+        <label for="department-code">Department Code:</label>
+        <input type="text" id="department-code" />
+        <button class="submit-button" onclick="displayDepartmentDetails()">Submit</button>
+      </div>
+      <div class="result-section">
+        <h2>Department Details</h2>
+        <table id="department-details-table">
+          <thead>
+            <tr>
+              <th>Department Name</th>
+              <th>Department ID</th>
+              <th>Department Code</th>
+            </tr>
+          </thead>
+          <tbody id="department-details-body">
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <script>
+      /* Display the entered department details in the result section */
+      function displayDepartmentDetails() {
+        var departmentName = document.getElementById("department-name").value;
+        var departmentID = document.getElementById("department-id").value;
+        var departmentCode = document.getElementById("department-code").value;
+        var departmentDetailsBody = document.getElementById("department-details-body");
+        var departmentDetailsRow = document.createElement("tr");
+        var departmentNameCell = document.createElement("td");
+        var departmentIDCell = document.createElement("td");
+        var departmentCodeCell = document.createElement("td");
+        departmentNameCell.innerHTML = departmentName;
+        departmentIDCell.innerHTML = departmentID;
+        departmentCodeCell.innerHTML = departmentCode;
+        departmentDetailsRow.appendChild(departmentNameCell);
+        departmentDetailsRow.appendChild(departmentIDCell);
+        departmentDetailsRow.appendChild(departmentCodeCell);
+        departmentDetailsBody.appendChild(departmentDetailsRow);
+        }
+    </script>
+    </body>
+</html>
+    

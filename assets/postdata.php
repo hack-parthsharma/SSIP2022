@@ -8,20 +8,20 @@ if (mysqli_connect_errno()) {
 }
 // get values from form
 $cid = $_POST['caseid'];
-$d = $_POST['department'];
 $s = $_POST['subject'];
 $cb = $_POST['Created_by'];
+$date = date('d-m-y');
 $r = $_POST['remarks'];
 // Upload file name
 $fl = $_FILES['file']['name'];
+$d = $_POST['department'];
 $stu = 'pending';
 // $stu=$_POST['status'];
 $cd = $d;
 $des = $_POST['Destination'];
-$date = date('d-m-y');
 //Insert into database named ddo.
 
-$sql = "INSERT INTO ddo VALUES ('$cid','$d','$s','$cb','$date','$r','$fl','$stu','$cd','$des')";
+$sql = "INSERT INTO ddo VALUES ('$cid','$s','$cb','$date','$r','$fl','$stu','$cd','$des')";
 
 if (!mysqli_query($con, $sql)) {
     die('Error: ' . mysqli_error($con));
@@ -51,8 +51,8 @@ if (!$con) {
     die('Could not connect: ');
 }
 // store the file name into database.
-$sql = "INSERT INTO upload (name) VALUES ('$folder')";
-mysqli_query($con, $sql);
+$sql = "INSERT INTO upload (case_id,file_path) VALUES ('$cid','$folder')";
+mysqli_query($con, $sql);   
 echo "</br>";
 // check file is uploaded at database or not.
 if (mysqli_query($con, $sql)) {

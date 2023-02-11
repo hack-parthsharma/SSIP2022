@@ -6,7 +6,7 @@ $user = $var1;
 
 $db = $conn;
 $tableName = "ddo";
-$columns = ['CaseID','Department','Subject','CreatedBy','CreationDate','Remarks','Documents','Status','CurrentDepartment','DestinationDepartment'];
+$columns = ['case_id','subject_name','created_by','creation_date','remarks','documents','status','current_department','next_department'];
 $fetchData = fetch_data($db, $tableName, $columns,$Department);
 $fetchDataRejected = fetch_data_rejected($db, $tableName, $columns,$Department);
 $fetchDataApproved = fetch_data_approved($db, $tableName, $columns,$Department);
@@ -22,9 +22,9 @@ function fetch_data($db, $tableName, $columns,$Department)
   } else {
     $columnName = implode(",", $columns);
     if($Department == 'admin'){
-      $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY CaseID ASC";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " ORDER BY case_id ASC";
     }else{
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' ORDER BY CaseID ASC";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE next_department = '". $Department ."' ORDER BY case_id ASC";
     }
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
     $result = $db->query($query);
@@ -54,9 +54,9 @@ function fetch_data_rejected($db, $tableName, $columns,$Department)
     $columnName = implode(",", $columns);
 
     if($Department == 'admin'){
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Rejected'";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE status='Rejected'";
     }else{
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' AND Status='Rejected'";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE next_department = '". $Department ."' AND Status='Rejected'";
     }
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
     $result = $db->query($query);
@@ -86,9 +86,9 @@ function fetch_data_approved($db, $tableName, $columns,$Department)
     $columnName = implode(",", $columns);
 
     if($Department == 'admin'){
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Approve'";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE status='Approve'";
     }else{
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' AND Status='Approve'";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE next_department = '". $Department ."' AND status='Approve'";
     }
     
     // $query = "SELECT * FROM ddo ORDER BY id DESC";
@@ -119,9 +119,9 @@ function fetch_data_pending($db, $tableName, $columns,$Department)
     $columnName = implode(",", $columns);
 
     if($Department == 'admin'){
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Status='Pending'";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE status='Pending'";
     }else{
-      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE Department = '". $Department ."' AND Status='Pending'";
+      $query = "SELECT " . $columnName . " FROM $tableName" . " WHERE next_department = '". $Department ."' AND status='Pending'";
     }
 
     
